@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Formulaire de réservation de salle – Mairie de Lacroix-Falgarde</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-active="reserver" data-hero="small">
+<div id="site-header"></div>
+<div class="page"><div class="wrap">
+  <aside class="sidebar"><h3>Infos pratiques</h3><a href="reserver-une-salle.html">Réserver une salle</a></aside>
+  <main class="content">
+    <div class="crumbs"><a href="index.html">Accueil</a><span>›</span><a href="#">Infos pratiques</a><span>›</span><a href="reserver-une-salle.html">Réserver une salle</a><span>›</span>Formulaire</div>
+    <h1>Formulaire de réservation de salle</h1>
+    <ol class="stepper" id="stepper" aria-label="Étapes du formulaire">
+      <li>Salle et horaires</li><li>Vos informations</li><li>Matériel</li><li>Justificatifs</li><li>Récapitulatif</li>
+    </ol>
+
+    <form id="form" novalidate>
+      <!-- 1 -->
+      <section class="step" data-step="1">
+        <h2>Je choisis ma salle</h2>
+        <div class="rooms" id="rooms"></div>
+        <div class="field invalid"><div class="err" id="err-room"></div></div>
+
+        <h2 style="margin-top:28px">Je choisis la date et l’heure</h2>
+        <div class="dt">
+          <div>
+            <div class="cal" id="cal" aria-live="polite"></div>
+            <div class="legend"><span><i style="background:#f3f8fb;border:1px solid #ccc"></i>Disponible</span><span><i style="background:#f6dede"></i>Complet</span><span><i style="background:var(--teal)"></i>Sélectionné</span></div>
+            <div class="field invalid"><div class="err" id="err-date"></div></div>
+          </div>
+          <div>
+            <div class="row2">
+              <div class="field"><label for="start">Heure de début</label><select id="start" disabled></select><div class="err" id="err-start"></div></div>
+              <div class="field"><label for="end">Heure de fin</label><select id="end" disabled></select><div class="err" id="err-end"></div></div>
+            </div>
+            <p class="note">Créneaux de 30 minutes, de 9h00 à 22h00 maximum. Seuls les horaires encore libres pour la salle choisie sont proposés.</p>
+            <div class="field"><label for="people">Nombre de participants</label>
+              <input id="people" type="number" min="1" step="1" inputmode="numeric">
+              <div class="hint" id="people-hint">Choisissez d’abord une salle (200 personnes maximum).</div><div class="err" id="err-people"></div></div>
+            <div class="field"><label for="desc">Description de la manifestation</label>
+              <textarea id="desc" rows="4"></textarea><div class="err" id="err-desc"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section class="step" data-step="2">
+        <h2>Ma situation</h2>
+        <div class="field"><label for="situation">Je réserve en tant que</label>
+          <select id="situation"><option value="">— Choisir —</option></select><div class="err" id="err-situation"></div></div>
+        <div class="check" id="local-wrap" hidden><input type="checkbox" id="local"><label for="local" id="local-label"></label></div>
+
+        <h2 style="margin-top:28px">Mes informations</h2>
+        <div id="entity-block">
+          <div class="field"><label for="entity" id="entity-label">Nom de l’entité</label><input id="entity" autocomplete="organization"><div class="err" id="err-entity"></div></div>
+        </div>
+        <div class="field"><label for="address">Adresse</label><textarea id="address" rows="2" autocomplete="street-address"></textarea><div class="err" id="err-address"></div></div>
+        <div class="field" id="siret-block"><label for="siret">N° SIRET / N° RNA <span id="siret-opt" class="note">(le cas échéant)</span></label>
+          <input id="siret" inputmode="text" placeholder="14 chiffres (SIRET) ou W + 9 chiffres (RNA)"><div class="err" id="err-siret"></div></div>
+        <div class="row2">
+          <div class="field"><label for="lastname">Nom</label><input id="lastname" autocomplete="family-name"><div class="err" id="err-lastname"></div></div>
+          <div class="field"><label for="firstname">Prénom</label><input id="firstname" autocomplete="given-name"><div class="err" id="err-firstname"></div></div>
+          <div class="field"><label for="email">Courriel</label><input id="email" type="email" autocomplete="email"><div class="err" id="err-email"></div></div>
+          <div class="field"><label for="phone">Téléphone</label><input id="phone" type="tel" autocomplete="tel"><div class="err" id="err-phone"></div></div>
+        </div>
+      </section>
+
+      <!-- 3 -->
+      <section class="step" data-step="3">
+        <h2>Matériel souhaité <span class="note">(optionnel)</span></h2>
+        <div id="mat-msg"></div>
+        <div id="materials"></div>
+        <div class="err" id="err-materials" style="color:#c0392b;font-size:12px"></div>
+      </section>
+
+      <!-- 4 -->
+      <section class="step" data-step="4">
+        <h2>Justificatifs à fournir</h2>
+        <div id="docs-msg"></div>
+        <ul class="docs" id="docs"></ul>
+      </section>
+
+      <!-- 5 -->
+      <section class="step" data-step="5">
+        <h2>Récapitulatif et validation</h2>
+        <div id="recap"></div>
+        <div class="alert">Les éventuels frais de location et cautions devront être fournis lors de la signature de la convention.</div>
+        <div class="check"><input type="checkbox" id="confirm"><label for="confirm">Je certifie l’exactitude des informations transmises.</label></div>
+        <div class="err" id="err-confirm" style="color:#c0392b;font-size:12px"></div>
+      </section>
+
+      <div class="nav-btns">
+        <button type="button" class="btn secondary" id="prev">Étape précédente</button>
+        <button type="button" class="btn" id="next">Étape suivante</button>
+      </div>
+    </form>
+    <div id="done" hidden></div>
+  </main>
+</div></div>
+<div id="site-footer"></div>
+<script src="js/layout.js"></script>
+<script src="js/data.js"></script>
+<script src="js/form.js"></script>
+</body>
+</html>

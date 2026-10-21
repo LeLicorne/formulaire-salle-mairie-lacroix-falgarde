@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Réserver une salle – Mairie de Lacroix-Falgarde</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-active="reserver" data-hero="small">
+<div id="site-header"></div>
+<div class="page"><div class="wrap">
+  <aside class="sidebar"><h3>Infos pratiques</h3><a href="reserver-une-salle.html">Réserver une salle</a></aside>
+  <main class="content">
+    <div class="crumbs"><a href="index.html">Accueil</a><span>›</span><a href="#">Infos pratiques</a><span>›</span>Réserver une salle</div>
+    <h1>Réserver une salle</h1>
+
+    <section class="lead">
+      <div>
+        <h2 class="section" style="margin-top:0">Comment réserver une salle ?</h2>
+        <p>La mairie de Lacroix-Falgarde propose à la réservation de nombreuses salles communales de différentes capacités pour les associations, particuliers, sociétés ou administrations.</p>
+        <p>Toute demande de réservation fait l’objet d’un dossier administratif. La réservation est accordée en fonction de critères formels, notamment l’adéquation entre la configuration des lieux et la manifestation envisagée. Les pièces à joindre au dossier dépendent de votre situation et vous sont indiquées au fil du formulaire.</p>
+        <p>À tout moment, la mairie de Lacroix-Falgarde reste prioritaire dans l’utilisation des salles communales, au titre de l’intérêt général, même si celles-ci ont été préalablement préservées.</p>
+        <p><a class="btn" href="formulaire-reservation.html">Faire une demande de réservation de salle</a></p>
+      </div>
+      <img src="assets/salle.svg" alt="Illustration d’une salle communale">
+    </section>
+
+    <h2 class="section">Salles disponibles</h2>
+    <table class="data" id="rooms-table">
+      <thead><tr><th>Salle</th><th>Adresse</th><th>Capacité maximale</th></tr></thead><tbody></tbody>
+    </table>
+
+    <h2 class="section">Tarification des salles</h2>
+    <table class="data">
+      <thead>
+        <tr><th rowspan="2"></th><th colspan="3">Tarifs</th><th rowspan="2">Cautions</th></tr>
+        <tr><th>Associations de Lacroix-Falgarde</th><th>Particuliers de Lacroix-Falgarde</th><th>Associations, particuliers, professionnels, etc.</th></tr>
+      </thead>
+      <tbody>
+        <tr class="band"><td colspan="5">Salles communales</td></tr>
+        <tr><td class="l"><b>Foyer rural</b></td><td>Gratuit</td><td>Journée : 250 €<br>WE : 350 €</td><td>Journée : 500 €<br>WE : 900 €</td><td>Salle : 1 000 €<br>Ménage : 200 €<br>Matériel : 300 €</td></tr>
+        <tr><td class="l"><b>Autres salles</b></td><td>Gratuit</td><td>½ journée : 50 €<br>Journée : 100 €<br>WE : 150 €</td><td>½ journée : 100 €<br>Journée : 200 €<br>WE : 300 €</td><td>Salle : 300 €<br>Ménage : 100 €<br>Matériel : 150 €</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Les éventuels frais de location et cautions devront être fournis lors de la signature de la convention.</p>
+
+    <h2 class="section">Matériels disponibles et tarification</h2>
+    <table class="data" id="mat-table">
+      <thead><tr><th>Matériel</th><th>Total</th><th>Dimensions en cm<br><i>longueur × largeur × hauteur</i></th></tr></thead><tbody></tbody>
+    </table>
+    <table class="data">
+      <thead>
+        <tr><th rowspan="2"></th><th colspan="3">Tarifs</th><th rowspan="2">Cautions</th></tr>
+        <tr><th>Associations de Lacroix-Falgarde</th><th>Particuliers de Lacroix-Falgarde</th><th>Associations, particuliers, professionnels, etc.</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="l"><b>Chaises / Bancs / Tables / Barrières</b></td><td>Gratuit</td><td>Gratuit</td><td>Pas de prêt</td><td>300 €</td></tr>
+        <tr><td class="l"><b>Barnums</b></td><td>Gratuit</td><td>Journée : 50 € / u</td><td>Pas de prêt</td><td>500 €</td></tr>
+      </tbody>
+    </table>
+    <p class="note">La réservation des tables, bancs, barnums et barrières n’est réservée qu’aux habitants et aux associations de Lacroix-Falgarde.</p>
+  </main>
+</div></div>
+<div id="site-footer"></div>
+<script src="js/layout.js"></script>
+<script src="js/data.js"></script>
+<script>
+document.querySelector('#rooms-table tbody').innerHTML = ROOMS.map(r =>
+  `<tr><td>${r.name}</td><td>${r.address}</td><td>${r.capacity}${r.note ? `<br><span class="warn">${r.note}</span>` : ''}</td></tr>`).join('');
+document.querySelector('#mat-table tbody').innerHTML = MATERIALS.map(m => m.foyerOnly
+  ? `<tr><td>${m.name}</td><td colspan="2"><span class="warn">uniquement avec la location du Foyer rural</span></td></tr>`
+  : `<tr><td>${m.name}</td><td>${m.total}</td><td>${m.dims}</td></tr>`).join('');
+</script>
+</body>
+</html>

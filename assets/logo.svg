@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 70" role="img" aria-label="Mairie de Lacroix-Falgarde">
+  <circle cx="58" cy="12" r="6" fill="#e8b23a"/>
+  <path d="M10 50V24l8-10 3 4v-6h3v8l5 4v26z" fill="#b9503b"/>
+  <g fill="#fff"><rect x="14" y="30" width="3" height="4"/><rect x="20" y="30" width="3" height="4"/><rect x="26" y="30" width="3" height="4"/></g>
+  <path d="M48 44c-2-12 4-22 8-28 2 10 6 16 4 28z" fill="#6aa335"/>
+  <path d="M62 44c0-10 4-18 8-22 0 8 2 14 0 22z" fill="#3f6b2b"/>
+  <path d="M2 52c14-10 26 4 40-4s26-2 36-10v8c-10 8-24 2-38 10S14 66 2 60z" fill="#2f9bd3"/>
+  <path d="M10 62c14 4 30-6 44-6s22 2 26-2v6c-6 4-22 4-34 4s-26 4-36-2z" fill="#7cc4e8"/>
+  <text x="96" y="30" font-family="Optima, 'Gill Sans', 'Trebuchet MS', sans-serif" font-size="19" fill="#111" letter-spacing="0.5">MAIRIE DE</text>
+  <text x="96" y="52" font-family="Optima, 'Gill Sans', 'Trebuchet MS', sans-serif" font-size="19" fill="#111" letter-spacing="0.5">LACROIX-FALGARDE</text>
+</svg>
